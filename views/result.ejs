@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Result</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="page-container result-page">
+        <div class="result-header">
+            <a href="/weather" class="secondary-btn">Back</a>
+        </div>
+
+        <h1 class="result-title"><%= location.name %>, <%= location.country %></h1>
+        <p class="result-subtitle"><%= location.region %> • Updated <%= current.last_updated %></p>
+
+        <div class="weather-card">
+            <div class="temp-row">
+                <div>
+                    <div class="temperature"><%= current.temp_c %>°C</div>
+                    <div class="feels-like">Feels like <strong><%= current.feelslike_c %>°C</strong></div>
+                </div>
+
+                <div class="condition-box">
+                    <div class="condition-icon"><%= current.condition.text.includes('Sunny') ? '☀️' : current.condition.text.includes('Cloud') ? '☁️' : current.condition.text.includes('Rain') ? '🌧️' : current.condition.text.includes('Clear') ? '🌤️' : '🌦️' %></div>
+                    <div><%= current.condition.text %></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span>Humidity</span>
+                <strong><%= current.humidity %>%</strong>
+            </div>
+            <div class="stat-card">
+                <span>Wind</span>
+                <strong><%= current.wind_kph %> km/h</strong>
+            </div>
+            <div class="stat-card">
+                <span>Pressure</span>
+                <strong><%= current.pressure_mb %> mb</strong>
+            </div>
+            <div class="stat-card">
+                <span>Visibility</span>
+                <strong><%= current.vis_km %> km</strong>
+            </div>
+            <div class="stat-card">
+                <span>UV Index</span>
+                <strong><%= current.uv %></strong>
+            </div>
+            <div class="stat-card">
+                <span>Feels Like</span>
+                <strong><%= current.feelslike_c %>°C</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
