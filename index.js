@@ -12,12 +12,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.set("view engine" , "ejs");
 
+const PORT = process.env.PORT || 8080;
 
-
-const port = 8080;
-
-app.listen(port , () => {
-    console.log("Server is Listening");
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
 
 app.get("/" , (req , res) => {
