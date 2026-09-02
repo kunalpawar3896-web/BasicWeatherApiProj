@@ -28,8 +28,8 @@ app.get("/weather" , (req , res) => {
 
 app.post("/weather" , async (req , res) => {
     const {city} = req.body;
-    const weatherApiKey = process.env.apiKey || process.env.apiKey;
-    let url = `http://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=${city}`
+    const weatherApiKey = process.env.apiKey;
+    let url = `https://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=${city}`
    
     try{
         let response = await axios.get(url);
